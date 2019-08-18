@@ -35,10 +35,10 @@ return(
     <FormGroup>
       <Row>
         <Col>
-          <Button> Update Company </Button>
+          <button className="submitButton"> Update Company </button>
         </Col>
         <Col>
-            <Button onClick={()=> props.setEditing(false)} className="button muted-button"> Cancel </Button>
+            <button className="cancelButton" onClick={()=> props.setEditing(false)} > Cancel </button>
         </Col>
       </Row>
     </FormGroup>

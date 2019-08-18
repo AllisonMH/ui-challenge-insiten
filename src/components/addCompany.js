@@ -5,7 +5,9 @@ import {Form, FormGroup, Label, Input} from 'reactstrap';
 const AddCompany =(props) =>{
   const initialState = {company_name:'',
                         founding_year:'',
-                        industry:''}
+                        industry:'',
+                        status:'',
+                        annual:''}
 
   const[company, setCompany] = useState(initialState)
 
@@ -33,6 +35,18 @@ const AddCompany =(props) =>{
         <FormGroup>
           <Label> Industry </Label>
           <Input type="text" name="industry" value={company.industry} onChange={handleInputChange} />
+        </FormGroup>
+        <FormGroup>
+          <Label> Status </Label>
+          <Input type="select" name="status" value={company.status} onChange={handleInputChange}>
+              <option> Researching</option>
+              <option> Pending Approval </option>
+              <option> Approved </option>
+          </Input>
+        </FormGroup>
+        <FormGroup>
+          <Label> Annual Revenue </Label>
+          <Input type="text" name="annual" value={company.annual} onChange={handleInputChange} />
         </FormGroup>
 
       <button className="submitButton">Add new company</button>

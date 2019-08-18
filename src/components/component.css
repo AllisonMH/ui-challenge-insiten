@@ -20,3 +20,19 @@
 .editButton{
   color: #0000FF;
 }
+
+.cancelButton{
+  background-color:#FFFFFF;
+  border-radius: 8px;
+  border-color:inherit;
+}
+.researching{
+  color: #b7bcc7;
+}
+.pending{
+  color: #2b63e0;
+}
+
+.approved{
+  color: #34eb5b;
+}

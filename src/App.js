@@ -7,9 +7,9 @@ import { Container, Row, Col } from 'reactstrap';
 
 function App() {
   const companiesData=[
-    {id: 1, company_name:'Goog', founding_year:'1996', industry:'agriculture'},
-    {id: 2, company_name:'Faz', founding_year:'2003', industry:'computing'},
-    {id: 3, company_name:'Gamg', founding_year:'2012', industry:'gaming'},
+    {id: 1, company_name:'Goog', founding_year:'1996', industry:'agriculture', status:'Researching', annual:'95 Million'},
+    {id: 2, company_name:'Faz', founding_year:'2003', industry:'computing', status:'Approved', annual:'20 Million'},
+    {id: 3, company_name:'Gamg', founding_year:'2012', industry:'gaming', status:'Pending Approval', annual:'36 Million'},
   ]
 
   const [companies, setCompanies]= useState(companiesData);
@@ -27,7 +27,7 @@ function App() {
 
 
   const [editing, setEditing]= useState(false)//making state for if editing mode is turned on
-  const initialFormState ={id:null, company_name:'', founding_year:'', industry:''} //initial empty state since we don't know who's edited until it's selected
+  const initialFormState ={id:null, company_name:'', founding_year:'', industry:'', status:'', annual:''} //initial empty state since we don't know who's edited until it's selected
   const [currentCompany, setCurrentCompany] = useState(initialFormState); //to see and update the selectedCompany
 
   const editRow = company =>{
@@ -43,7 +43,12 @@ function App() {
 
   return (
     <Container>
-      <h1> Target Companies </h1>
+      <div className="header">
+          <h1> Target Companies </h1>
+      </div>
+      <Row>
+          <CompanyTable companies={companies} editRow={editRow} deleteCompany={deleteCompany} />
+      </Row>
         <Row>
         <Col>
           { editing ? (
@@ -63,11 +68,7 @@ function App() {
             </div>
           )}
       </Col>
-        <Col>
-          <h2> Companies in System </h2>
-          <CompanyTable companies={companies} editRow={editRow} deleteCompany={deleteCompany} />
-        </Col>
-      </Row>
+    </Row>
   </Container>
 
   );
