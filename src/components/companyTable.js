@@ -1,7 +1,8 @@
 import React from 'react';
-
+import './component.css';
+import { Table, Row, Col } from 'reactstrap';
 const CompanyTable = (props) =>(
-  <table>
+  <Table hover>
     <thead>
       <tr>
         <th> Name</th>
@@ -17,13 +18,19 @@ const CompanyTable = (props) =>(
         <td>{company.founding_year}</td>
         <td>{company.industry}</td>
         <td>
-          <button onClick={()=>props.editRow(company)} className="button muted-button">Edit</button>
-          <button onClick={()=> props.deleteCompany(company.id)} className="button muted-button">Delete</button>
+          <Row>
+            <Col>
+              <button onClick={()=>props.editRow(company)} className="editButton">Edit </button>
+            </Col>
+            <Col>
+              <button onClick={()=> props.deleteCompany(company.id)} className="deleteButton">Delete </button>
+            </Col>
+          </Row>
         </td>
       </tr>
     ))}
     </tbody>
-  </table>
+  </Table>
 )
 
 export default CompanyTable;

@@ -2,7 +2,8 @@ import React, {useState} from 'react';
 import './App.css';
 import CompanyTable from './components/companyTable';
 import AddCompany from './components/addCompany';
-import EditCompany from './components/editCompany'
+import EditCompany from './components/editCompany';
+import { Container, Row, Col } from 'reactstrap';
 
 function App() {
   const companiesData=[
@@ -41,10 +42,10 @@ function App() {
 
 
   return (
-    <div className="container">
+    <Container>
       <h1> Target Companies </h1>
-      <div className="flex-row">
-        <div className="flex-large">
+        <Row>
+        <Col>
           { editing ? (
             <div>
               <h2> Edit Company </h2>
@@ -57,17 +58,17 @@ function App() {
             </div>
           ):(
             <div>
-              <h2> Add Company</h2>
+              <h2> Add New Company</h2>
               <AddCompany addCompany={addCompany} />
             </div>
           )}
-        </div>
-        <div className="flex-large">
-          <h1> Companies Table </h1>
+      </Col>
+        <Col>
+          <h2> Companies in System </h2>
           <CompanyTable companies={companies} editRow={editRow} deleteCompany={deleteCompany} />
-        </div>
-      </div>
-    </div>
+        </Col>
+      </Row>
+  </Container>
 
   );
 }

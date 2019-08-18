@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import './component.css';
+import {Form, FormGroup, Label, Input} from 'reactstrap';
 
 const AddCompany =(props) =>{
   const initialState = {company_name:'',
@@ -13,21 +15,28 @@ const AddCompany =(props) =>{
   }
 
   return(
-    <form
+    <Form
       onSubmit ={event=>{
         event.preventDefault();
         props.addCompany(company)
         setCompany(initialState)
       }}
       >
-      <label> Company Name</label>
-      <input type="text" name="company_name" value={company.company_name} onChange={handleInputChange} />
-      <label>Company Founding Year</label>
-      <input type="text" name="founding_year" value={company.founding_year} onChange={handleInputChange}/>
-      <label>Company Industry</label>
-      <input type="text" name="industry" value={company.industry} onChange={handleInputChange} />
-      <button>Add new company</button>
-    </form>
+        <FormGroup>
+          <Label> Company Name</Label>
+          <Input type="text" name="company_name" value={company.company_name} onChange={handleInputChange} />
+        </FormGroup>
+        <FormGroup>
+          <Label>Founding Year </Label>
+          <Input type="text" name="founding_year" value={company.founding_year} onChange={handleInputChange}/>
+        </FormGroup>
+        <FormGroup>
+          <Label> Industry </Label>
+          <Input type="text" name="industry" value={company.industry} onChange={handleInputChange} />
+        </FormGroup>
+
+      <button className="submitButton">Add new company</button>
+    </Form>
   )
 }
 
