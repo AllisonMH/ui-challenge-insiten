@@ -33,6 +33,20 @@ return(
     </FormGroup>
 
     <FormGroup>
+      <Label> Status </Label>
+      <Input type="select" name="status" value={company.status} onChange={handleInputChange}>
+          <option> Researching</option>
+          <option> Pending Approval </option>
+          <option> Approved </option>
+      </Input>
+    </FormGroup>
+    
+    <FormGroup>
+      <Label> Annual Revenue </Label>
+      <Input type="text" name="annual" value={company.annual} onChange={handleInputChange} />
+    </FormGroup>
+
+    <FormGroup>
       <Row>
         <Col>
           <button className="submitButton"> Update Company </button>

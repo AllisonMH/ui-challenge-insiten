@@ -32,7 +32,7 @@ function App() {
 
   const editRow = company =>{
     setEditing(true)
-    setCurrentCompany({id: company.id, company_name:company.company_name, founding_year:company.founding_year, industry:company.industry})
+    setCurrentCompany({id: company.id, company_name:company.company_name, founding_year:company.founding_year, industry:company.industry, status:company.status, annual:company.annual})
   }
 
   const updateCompany =(id, updatedCompany)=>{
@@ -53,7 +53,9 @@ function App() {
         <Col>
           { editing ? (
             <div>
-              <h2> Edit Company </h2>
+              <div className="subHeader">
+                <h2> Edit Company Data </h2>
+              </div>
               <EditCompany
                 editing={editing}
                 setEditing={setEditing}
@@ -63,7 +65,9 @@ function App() {
             </div>
           ):(
             <div>
-              <h2> Add New Company</h2>
+              <div className="subHeader">
+                <h2> Add New Company</h2>
+              </div>
               <AddCompany addCompany={addCompany} />
             </div>
           )}
