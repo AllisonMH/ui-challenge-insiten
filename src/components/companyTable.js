@@ -27,7 +27,15 @@ class CompanyTable extends Component {
   render(){
     return(
       <div style={{'width':'100%'}}>
-        <Button onClick={()=>this.props.annualSort()}> Sort By Annual Revenue</Button>
+        <Row style={{'marginBottom': '20px'}}>
+          <Col>
+            <Button style={{'backgroundColor': '#0000FF'}} onClick={()=>this.props.foundingYearSort()}> Sort By Founding Year</Button>
+          </Col>
+          <Col></Col>
+          <Col>
+            <Button style={{'backgroundColor': '#0000FF'}} onClick={()=>this.props.annualSort()}> Sort By Annual Revenue</Button>
+          </Col>
+        </Row>
     <Table hover>
     <thead>
       <tr>

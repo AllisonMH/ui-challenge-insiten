@@ -44,8 +44,11 @@ function App() {
     console.log(companies)
     }
 
-  const foundingYearSort =(a,b)=> {
-      return a.founding_year > b.founding_year? 1: -1;
+  const foundingYearSort =()=> {
+    console.log('foundingYearSort being called');
+    setCompanies(companies.sort( (a,b)=>(a.founding_year > b.founding_year)? 1:-1))
+    console.log(companies)
+
     }
 
 
@@ -55,7 +58,7 @@ function App() {
           <h1> Target Companies </h1>
       </div>
       <Row>
-          <CompanyTable companies={companies} editRow={editRow} deleteCompany={deleteCompany} annualSort={annualSort} />
+          <CompanyTable companies={companies} editRow={editRow} deleteCompany={deleteCompany} annualSort={annualSort} foundingYearSort={foundingYearSort} />
       </Row>
         <Row>
         <Col>
