@@ -7,9 +7,8 @@ const EditCompany = props=>{
 
   const handleInputChange = event =>{
     const {name, value} = event.target
-    setCompany({...company, [name]: value}) 
+    setCompany({...company, [name]: value})
   }
-  console.log(company.industry);
 
 return(
   <Form

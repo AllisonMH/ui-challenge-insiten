@@ -1,6 +1,6 @@
 import React, { Component} from 'react';
 import './component.css';
-import { Table, Row, Col } from 'reactstrap';
+import { Table, Row, Col, Button} from 'reactstrap';
 
 
 class CompanyTable extends Component {
@@ -23,16 +23,19 @@ class CompanyTable extends Component {
       )
     }
   }
+
   render(){
     return(
-  <Table hover>
+      <div style={{'width':'100%'}}>
+        <Button onClick={()=>this.props.annualSort()}> Sort By Annual Revenue</Button>
+    <Table hover>
     <thead>
       <tr>
         <th> Name</th>
         <th>Founding Year</th>
         <th>Industry</th>
         <th> Status </th>
-        <th> Annual Revenue </th>
+        <th> Annual Revenue</th>
         <th>Actions</th>
       </tr>
     </thead>
@@ -58,6 +61,7 @@ class CompanyTable extends Component {
     ))}
     </tbody>
   </Table>
+</div>
 )
 }
 }
