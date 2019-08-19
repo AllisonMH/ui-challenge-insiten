@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import {Form, FormGroup, Label, Input, Button, Row, Col} from 'reactstrap';
+import {Form, FormGroup, Label, Input, Row, Col} from 'reactstrap';
 
 const EditCompany = props=>{
+
   const [company, setCompany] = useState(props.currentCompany)
 
   const handleInputChange = event =>{
     const {name, value} = event.target
-    setCompany({...company, [name]: value})
+    setCompany({...company, [name]: value}) 
   }
   console.log(company.industry);
 
@@ -40,7 +41,7 @@ return(
           <option> Approved </option>
       </Input>
     </FormGroup>
-    
+
     <FormGroup>
       <Label> Annual Revenue </Label>
       <Input type="text" name="annual" value={company.annual} onChange={handleInputChange} />

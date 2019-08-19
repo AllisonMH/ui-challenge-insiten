@@ -7,9 +7,9 @@ import { Container, Row, Col } from 'reactstrap';
 
 function App() {
   const companiesData=[
-    {id: 1, company_name:'Goog', founding_year:'1996', industry:'agriculture', status:'Researching', annual:'95 Million'},
-    {id: 2, company_name:'Faz', founding_year:'2003', industry:'computing', status:'Approved', annual:'20 Million'},
-    {id: 3, company_name:'Gamg', founding_year:'2012', industry:'gaming', status:'Pending Approval', annual:'36 Million'},
+    {id: 1, company_name:'Goog', founding_year:'1996', industry:'agriculture', status:'Researching', annual:'95,000,000.00'},
+    {id: 2, company_name:'Faz', founding_year:'2003', industry:'computing', status:'Approved', annual:'20,000,000.00'},
+    {id: 3, company_name:'Gamg', founding_year:'2012', industry:'gaming', status:'Pending Approval', annual:'36,000,000.00'},
   ]
 
   const [companies, setCompanies]= useState(companiesData);
@@ -19,16 +19,14 @@ function App() {
     setCompanies([...companies, company])
     }
 
-
-//deletes by filtering the company by id and removing them from the companiesData array
   const deleteCompany = id =>{
     setCompanies(companies.filter(company => company.id !== id))
   }
 
 
-  const [editing, setEditing]= useState(false)//making state for if editing mode is turned on
-  const initialFormState ={id:null, company_name:'', founding_year:'', industry:'', status:'', annual:''} //initial empty state since we don't know who's edited until it's selected
-  const [currentCompany, setCurrentCompany] = useState(initialFormState); //to see and update the selectedCompany
+  const [editing, setEditing]= useState(false)
+  const initialFormState ={id:null, company_name:'', founding_year:'', industry:'', status:'', annual:''}
+  const [currentCompany, setCurrentCompany] = useState(initialFormState);
 
   const editRow = company =>{
     setEditing(true)
