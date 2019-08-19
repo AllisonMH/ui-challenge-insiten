@@ -28,3 +28,7 @@
 .approved{
   color: #34eb5b;
 }
+
+.industry,.name,{
+  text-transform:capitalize;
+}

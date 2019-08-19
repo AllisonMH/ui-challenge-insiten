@@ -39,9 +39,9 @@ class CompanyTable extends Component {
     <tbody>
     {this.props.companies.map(company => (
       <tr key={company.id}>
-        <td>{company.company_name}</td>
+        <td className="name">{company.company_name}</td>
         <td>{company.founding_year}</td>
-        <td>{company.industry}</td>
+        <td className="industry">{company.industry}</td>
         <td>{this.approvalStatus(company.status)}</td>
         <td>{company.annual} </td>
         <td>
