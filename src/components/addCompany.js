@@ -12,8 +12,8 @@ const AddCompany =(props) =>{
   const[company, setCompany] = useState(initialState)
 
   const handleInputChange = event =>{
-    const {name, value} = event.target //has to be name to identify wth the name variables in the input boxes below
-    setCompany({...company, [name]:value}) //sets the value according to the name part in the input boxes
+    const {name, value} = event.target
+    setCompany({...company, [name]:value})
   }
 
   return(
