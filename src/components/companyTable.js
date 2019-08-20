@@ -6,7 +6,9 @@ import { Table, Row, Col, Button} from 'reactstrap';
 class CompanyTable extends Component {
   constructor(props){
     super(props);
+    this.state={ annualbeingSorted:false, foundingYearbeingSorted:false }
     this.approvalStatus = this.approvalStatus.bind(this);
+    this.sortedAnnual = this.sortedAnnual.bind(this);
   }
     approvalStatus(companyStatus){
     if(companyStatus === 'Pending Approval'){
@@ -24,16 +26,28 @@ class CompanyTable extends Component {
     }
   }
 
+ sortedAnnual =()=>{
+   this.setState({annualbeingSorted:true});
+    let annuallySortedProps = this.props.annualSort();
+    return annuallySortedProps;
+  }
+
+  sortedFoundingYear=()=>{
+    this.setState({foundingYearbeingSorted:true});
+    let foundingYearSortedProps = this.props.foundingYearSort();
+    return foundingYearSortedProps;
+  }
+
   render(){
     return(
       <div style={{'width':'100%'}}>
         <Row style={{'marginBottom': '20px'}}>
           <Col>
-            <Button style={{'backgroundColor': '#0000FF'}} onClick={()=>this.props.foundingYearSort()}> Sort By Founding Year</Button>
+            <Button style={{'backgroundColor': '#0000FF'}} onClick={()=>this.sortedFoundingYear()}> Sort By Founding Year</Button>
           </Col>
           <Col></Col>
           <Col>
-            <Button style={{'backgroundColor': '#0000FF'}} onClick={()=>this.props.annualSort()}> Sort By Annual Revenue</Button>
+            <Button style={{'backgroundColor': '#0000FF'}} onClick={()=>this.sortedAnnual()}> Sort By Annual Revenue</Button>
           </Col>
         </Row>
     <Table hover>
@@ -48,6 +62,8 @@ class CompanyTable extends Component {
       </tr>
     </thead>
     <tbody>
+    {this.state.annualbeingSorted}
+    {this.state.foundingYearbeingSorted}
     {this.props.companies.map(company => (
       <tr key={company.id}>
         <td className="name">{company.company_name}</td>

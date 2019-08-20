@@ -39,16 +39,13 @@ function App() {
   }
 
   const annualSort =()=>{
-    console.log('annual Sort being called')
-    setCompanies(companies.sort((a,b)=>(a.annual > b.annual)? 1:-1))
-    console.log(companies)
+    companies.sort((a,b) =>(a.annual > b.annual) ? 1: -1)
+    setCompanies(companies)
     }
 
   const foundingYearSort =()=> {
-    console.log('foundingYearSort being called');
-    setCompanies(companies.sort( (a,b)=>(a.founding_year > b.founding_year)? 1:-1))
-    console.log(companies)
-
+    companies.sort((a,b) =>(a.founding_year > b.founding_year) ? 1: -1)
+    setCompanies(companies)
     }
 
 
